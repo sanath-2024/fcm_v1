@@ -1,8 +1,23 @@
+#![warn(missing_docs)]
+
+//! fcm_v1
+//! ======
+//!
+//! A type-safe way to call the Firebase Cloud Messaging (FCM) HTTP v1 API.
+//!
+//! OAuth 2.0 authentication is performed via the [yup-oauth2](yup_oauth2) crate.
+//! Currently, we request the `"https://www.googleapis.com/auth/firebase.messaging"` scope
+//! in order to send messages.
+
+/// Android-specific component of the message.
 pub mod android;
+/// iOS-specific component of the message.
 pub mod apns;
 mod client;
+/// Platform-independent component of the message.
 pub mod message;
 mod result;
+/// Web Push-specific component of the message.
 pub mod webpush;
 
 pub use client::Client;

@@ -5,6 +5,8 @@ edition = "2021"
 
 description = "a simple Rust FCM server library (HTTP v1 API)"
 readme = "README.md"
+homepage = "https://github.com/sanath-2024/fcm_v1"
+documentation = "https://docs.rs/fcm_v1/latest/fcm_v1"
 repository = "https://github.com/sanath-2024/fcm_v1"
 license = "MIT"
 keywords = ["fcm", "gcp", "google", "firebase", "api"]

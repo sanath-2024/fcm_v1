@@ -3,6 +3,7 @@ use std::collections::HashMap;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 
+#[allow(missing_docs)]
 #[derive(Clone, Debug, Serialize, Deserialize, Default)]
 pub struct AndroidConfig {
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -23,6 +24,7 @@ pub struct AndroidConfig {
     pub direct_boot_ok: Option<bool>,
 }
 
+#[allow(missing_docs)]
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum AndroidMessagePriority {
@@ -36,6 +38,7 @@ impl Default for AndroidMessagePriority {
     }
 }
 
+#[allow(missing_docs)]
 #[derive(Clone, Debug, Serialize, Deserialize, Default)]
 pub struct AndroidNotification {
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -90,6 +93,7 @@ pub struct AndroidNotification {
     pub image: Option<String>,
 }
 
+#[allow(missing_docs)]
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum NotificationPriority {
@@ -107,6 +111,7 @@ impl Default for NotificationPriority {
     }
 }
 
+#[allow(missing_docs)]
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum Visibility {
@@ -122,6 +127,7 @@ impl Default for Visibility {
     }
 }
 
+#[allow(missing_docs)]
 #[derive(Clone, Debug, Serialize, Deserialize, Default)]
 pub struct LightSettings {
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -132,14 +138,16 @@ pub struct LightSettings {
     pub light_off_duration: Option<String>,
 }
 
+#[allow(missing_docs)]
 #[derive(Clone, Debug, Serialize, Deserialize, Default)]
 pub struct Color {
-    red: f32,
-    green: f32,
-    blue: f32,
-    alpha: f32,
+    pub red: f32,
+    pub green: f32,
+    pub blue: f32,
+    pub alpha: f32,
 }
 
+#[allow(missing_docs)]
 #[derive(Clone, Debug, Serialize, Deserialize, Default)]
 pub struct AndroidFcmOptions {
     #[serde(skip_serializing_if = "Option::is_none")]

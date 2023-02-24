@@ -5,6 +5,7 @@ use serde_json::Value;
 
 use crate::{android::AndroidConfig, apns::ApnsConfig, webpush::WebpushConfig};
 
+#[allow(missing_docs)]
 #[derive(Clone, Debug, Serialize, Deserialize, Default)]
 pub struct Message {
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -30,6 +31,7 @@ pub struct Message {
     pub condition: Option<String>,
 }
 
+#[allow(missing_docs)]
 #[derive(Clone, Debug, Serialize, Deserialize, Default)]
 pub struct Notification {
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -40,10 +42,14 @@ pub struct Notification {
     pub image: Option<String>,
 }
 
+/// The target of the push notification.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub enum Target {
+    /// Registration token to send a message to. Use this option to send notifications to individual devices.
     Token(String),
+    /// Topic name to send a message to, e.g. `"weather"`. Note: `"/topics/"` prefix should not be provided.
     Topic(String),
+    /// Condition to send a message to, e.g. `"'foo' in topics && 'bar' in topics"`.
     Condition(String),
 }
 
@@ -53,8 +59,9 @@ impl Default for Target {
     }
 }
 
+#[allow(missing_docs)]
 #[derive(Clone, Debug, Serialize, Deserialize, Default)]
 pub struct FcmOptions {
     #[serde(skip_serializing_if = "Option::is_none")]
-    analytics_label: Option<String>,
+    pub analytics_label: Option<String>,
 }

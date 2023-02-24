@@ -1,11 +1,19 @@
+/// Custom result type for FCM API calls.
 pub type Result<T> = std::result::Result<T, Error>;
 
+/// Custom error type for FCM API calls.
 #[derive(Debug)]
 pub enum Error {
+    /// OAuth2 authentication error.
     Auth,
+    /// Arbitrary configuration error (e.g. unable to initialize TLS backend).
     Config,
+    /// Deserialization error (i.e. unexpected result format received from server).
     Deserialization,
+    /// FCM server error (returned directly to caller).
     FCM(String),
+    /// Timed out while waiting for server. According to Google, [the server should use exponential back-off to
+    /// deal with timeout errors](https://firebase.google.com/docs/cloud-messaging/server).
     Timeout,
 }
 

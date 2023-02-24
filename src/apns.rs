@@ -3,6 +3,7 @@ use std::collections::HashMap;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 
+#[allow(missing_docs)]
 #[derive(Clone, Debug, Serialize, Deserialize, Default)]
 pub struct ApnsConfig {
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -13,10 +14,11 @@ pub struct ApnsConfig {
     pub fcm_options: Option<ApnsFcmOptions>,
 }
 
+#[allow(missing_docs)]
 #[derive(Clone, Debug, Serialize, Deserialize, Default)]
 pub struct ApnsFcmOptions {
     #[serde(skip_serializing_if = "Option::is_none")]
-    analytics_label: Option<String>,
+    pub analytics_label: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    image: Option<String>,
+    pub image: Option<String>,
 }

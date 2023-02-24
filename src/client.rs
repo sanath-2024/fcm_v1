@@ -7,6 +7,7 @@ use yup_oauth2::authenticator::Authenticator;
 
 use crate::{message::Message, Error, Result};
 
+/// FCM HTTP v1 API client
 pub struct Client {
     inner: reqwest::Client,
     authenticator: Authenticator<HttpsConnector<HttpConnector>>,
@@ -21,6 +22,14 @@ struct FCMReq<'a> {
 }
 
 impl Client {
+    /// Build a new client.
+    ///
+    /// `service_account_creds_filepath` is the path to the downloaded JSON credentials file for a service account.
+    ///
+    /// `project_id` is a unique identifier for the project (e.g. myproject-a2bcd).
+    ///
+    /// `validate_only` is a boolean flag indicating whether the notification should actually be sent out, or if it is just
+    /// a test which should only be validated by FCM.
     pub async fn new<P: AsRef<Path>, T: AsRef<str>>(
         service_account_creds_filepath: P,
         project_id: T,
@@ -46,6 +55,8 @@ impl Client {
         })
     }
 
+    /// Send a message. Does not implement retry on failure (that is the caller's responsibility).
+    /// Requires the `"https://www.googleapis.com/auth/firebase.messaging"` scope.
     pub async fn send(&self, message: &Message) -> Result<Message> {
         let scopes = &["https://www.googleapis.com/auth/firebase.messaging"];
 
