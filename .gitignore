@@ -1,0 +1,8 @@
+/target
+/Cargo.lock
+
+# ignore credential files
+*.json
+
+# ignore run script (since it contains sensitive info)
+run_tests.sh
