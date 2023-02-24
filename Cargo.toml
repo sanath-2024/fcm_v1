@@ -3,7 +3,12 @@ name = "fcm_v1"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+description = "a simple Rust FCM server library (HTTP v1 API)"
+readme = "README.md"
+repository = "https://github.com/sanath-2024/fcm_v1"
+license = "MIT"
+keywords = ["fcm", "gcp", "google", "firebase", "api"]
+categories = ["api-bindings", "web-programming"]
 
 [dependencies]
 async-trait = "0.1"
