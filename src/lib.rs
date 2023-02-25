@@ -13,6 +13,8 @@
 pub mod android;
 /// iOS-specific component of the message.
 pub mod apns;
+/// OAuth2 authentication helpers.
+pub mod auth;
 mod client;
 /// Platform-independent component of the message.
 pub mod message;
@@ -36,9 +38,10 @@ mod tests {
         let creds_path = env::var("GOOGLE_APPLICATION_CREDENTIALS").unwrap();
         let project_id = env::var("GOOGLE_PROJECT_ID").unwrap();
         let registration_token = env::var("FCM_REGISTRATION_TOKEN").unwrap();
-        let client = Client::new(creds_path, project_id, Duration::from_secs(10), false)
+        let authenticator = auth::Authenticator::service_account_from_file(creds_path)
             .await
             .unwrap();
+        let client = Client::new(authenticator, project_id, true, Duration::from_secs(10));
 
         let mut test_noti = message::Notification::default();
         test_noti.title = Some("test notification".to_owned());
