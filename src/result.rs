@@ -2,7 +2,7 @@
 pub type Result<T> = std::result::Result<T, Error>;
 
 /// Custom error type for FCM API calls.
-#[derive(Debug)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum Error {
     /// OAuth2 authentication error.
     Auth,

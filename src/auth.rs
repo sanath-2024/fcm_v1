@@ -10,6 +10,7 @@ pub use yup_oauth2::{
 use crate::{Error, Result};
 
 /// A generic authentication mechanism for FCM, unifying the several methods provided by [yup-oauth2](yup_oauth2).
+#[derive(Clone)]
 pub struct Authenticator {
     inner: yup_oauth2::authenticator::Authenticator<HttpsConnector<HttpConnector>>,
 }

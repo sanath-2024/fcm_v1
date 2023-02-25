@@ -5,6 +5,7 @@ use serde::Serialize;
 use crate::{auth::Authenticator, message::Message, Error, Result};
 
 /// FCM HTTP v1 API client
+#[derive(Clone)]
 pub struct Client {
     inner: reqwest::Client,
     authenticator: Authenticator,
