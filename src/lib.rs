@@ -21,6 +21,7 @@ pub mod message;
 mod result;
 /// Web Push-specific component of the message.
 pub mod webpush;
+pub mod aps;
 
 pub use client::Client;
 pub use result::{Error, Result};
