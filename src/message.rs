@@ -65,3 +65,10 @@ pub struct FcmOptions {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub analytics_label: Option<String>,
 }
+
+#[derive(Clone, Debug, Serialize, Deserialize, Default)]
+pub struct Aps {
+    #[serde(rename(serialize = "mutable-content"))]
+    // Either 0 or 1, not sure if it's possible that serde can map bool to i32 itself
+    pub mutable_content: i32,
+}
