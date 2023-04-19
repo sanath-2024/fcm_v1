@@ -1,6 +1,6 @@
 [package]
 name = "fcm_v1"
-version = "0.2.0"
+version = "0.2.1"
 edition = "2021"
 
 description = "a simple Rust FCM server library (HTTP v1 API)"
@@ -19,7 +19,7 @@ hyper-rustls = "0.23"
 reqwest = {version = "0.11", features = ["json"]}
 serde = {version = "1", features = ["derive"]}
 serde_json = "1"
-yup-oauth2 = "8"
+yup-oauth2 = "=8.1"
 
 [dev-dependencies]
 tokio = {version = "1", features = ["macros"]}
