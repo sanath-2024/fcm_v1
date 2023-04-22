@@ -1,9 +1,8 @@
 use std::path::Path;
 
-use hyper::client::HttpConnector;
-use hyper_rustls::HttpsConnector;
 pub use yup_oauth2::{
-    authorized_user::AuthorizedUserSecret, AccessToken, ApplicationDefaultCredentialsFlowOpts,
+    authorized_user::AuthorizedUserSecret, hyper::client::HttpConnector,
+    hyper_rustls::HttpsConnector, AccessToken, ApplicationDefaultCredentialsFlowOpts,
     ApplicationSecret, InstalledFlowReturnMethod, ServiceAccountKey,
 };
 
