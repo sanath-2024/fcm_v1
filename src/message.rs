@@ -6,6 +6,12 @@ use serde_json::Value;
 use crate::{android::AndroidConfig, apns::ApnsConfig, webpush::WebpushConfig};
 
 #[allow(missing_docs)]
+#[derive(Clone, Debug, Deserialize, Default)]
+pub struct Response {
+    pub name: String,
+}
+
+#[allow(missing_docs)]
 #[derive(Clone, Debug, Serialize, Deserialize, Default)]
 pub struct Message {
     #[serde(skip_serializing_if = "Option::is_none")]
