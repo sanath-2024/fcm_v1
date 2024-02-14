@@ -25,17 +25,12 @@ pub struct AndroidConfig {
 }
 
 #[allow(missing_docs)]
-#[derive(Clone, Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug, Default, Serialize, Deserialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum AndroidMessagePriority {
+    #[default]
     Normal,
     High,
-}
-
-impl Default for AndroidMessagePriority {
-    fn default() -> AndroidMessagePriority {
-        AndroidMessagePriority::Normal
-    }
 }
 
 #[allow(missing_docs)]
@@ -94,37 +89,27 @@ pub struct AndroidNotification {
 }
 
 #[allow(missing_docs)]
-#[derive(Clone, Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug, Default, Serialize, Deserialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum NotificationPriority {
     PriorityUnspecified,
     PriorityMin,
     PriorityLow,
+    #[default]
     PriorityDefault,
     PriorityHigh,
     PriorityMax,
 }
 
-impl Default for NotificationPriority {
-    fn default() -> NotificationPriority {
-        NotificationPriority::PriorityDefault
-    }
-}
-
 #[allow(missing_docs)]
-#[derive(Clone, Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug, Default, Serialize, Deserialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum Visibility {
     VisibilityUnspecified,
+    #[default]
     Private,
     Public,
     Secret,
-}
-
-impl Default for Visibility {
-    fn default() -> Visibility {
-        Visibility::Private
-    }
 }
 
 #[allow(missing_docs)]

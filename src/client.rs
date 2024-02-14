@@ -86,6 +86,6 @@ impl Client {
             )));
         }
 
-        return resp.json().await.map_err(|_| Error::Deserialization);
+        resp.json().await.map_err(|_| Error::Deserialization)
     }
 }
