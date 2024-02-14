@@ -1,13 +1,18 @@
 #![warn(missing_docs)]
-
-//! fcm_v1
-//! ======
+//! A type-safe way to call the
+//! [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging
+//! (FCM) HTTP v1 API.
 //!
-//! A type-safe way to call the Firebase Cloud Messaging (FCM) HTTP v1 API.
+//! OAuth 2.0 authentication is performed via the
+//! [`yup-oauth2`](https://crates.io/crates/yup-oauth2) crate.
 //!
-//! OAuth 2.0 authentication is performed via the [yup-oauth2](yup_oauth2) crate.
-//! Currently, we request the `"https://www.googleapis.com/auth/firebase.messaging"` scope
-//! in order to send messages.
+//! Currently, we request the
+//! `https://www.googleapis.com/auth/firebase.messaging` scope in order to send
+//! messages.
+//!
+//! ## Optional Features
+//!
+#![doc = document_features::document_features!()]
 
 /// Android-specific component of the message.
 pub mod android;
